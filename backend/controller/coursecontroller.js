@@ -1,4 +1,4 @@
-import Course from '../models/course.js'
+import Course from '../models/Course.js'
 const createCourse = async(req,res)=>{
     try{
         const {name, photo, provider, discription, price} = req.body;

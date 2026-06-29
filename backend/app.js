@@ -7,7 +7,7 @@ import employeerouter from './routes/employeeroutes.js'
 import courserouter from './routes/courseroutes.js'
 
 dotenv.config()
-const port =process.env.PORT || 3000;
+const port =3000;
 const app =express();
 app.use(cors());
 mongoose.connect(process.env.MONGO_URL)
