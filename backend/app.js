@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import bodyparser from 'body-parser'
 import cors from 'cors';
-import employeerouter from './routes/employeeroutes.js'
+import userrouter from './routes/userroutes.js'
 import courserouter from './routes/courseroutes.js'
 
 dotenv.config()
@@ -17,7 +17,7 @@ mongoose.connect(process.env.MONGO_URL)
     console.log("connerction error ",err);
 })
 app.use(bodyparser.json());
-app.use('/api', employeerouter);
+app.use('/api', userrouter);
 app.use('/api', courserouter)
 app.listen(port,()=>{
     console.log("server started",port)

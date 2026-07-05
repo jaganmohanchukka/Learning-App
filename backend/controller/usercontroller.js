@@ -1,16 +1,16 @@
-import Employee from '../models/Employee.js'
+import User from '../models/User.js'
 
-const createEmployee = async(req,res)=>{
+const createUser = async(req,res)=>{
     try{
         const {name, issue, phone} = req.body;
         console.log(req.body)
-        const employee = new Employee({
+        const user = new User({
             name,
             issue,
             phone
         });
-        await employee.save();
-        res.status(201).json(employee)
+        await user.save();
+        res.status(201).json(user)
     }
     catch(err){
         
@@ -19,26 +19,26 @@ const createEmployee = async(req,res)=>{
     }
 }
 
-const getEmployees = async (req, res) => {
+const getUsers = async (req, res) => {
     try {
-        const employees = await Employee.find()
-        res.status(200).json(employees)
+        const users = await User.find()
+        res.status(200).json(users)
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
 }
-const getEmployee = async (req, res) => {
+const getUser = async (req, res) => {
     try {
         const { id } = req.params;
-        const employee = await Employee.findById(id)
-        res.status(200).json(employee)
+        const user = await User.findById(id)
+        res.status(200).json(user)
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
 }
 
 export default {
-    createEmployee,
-    getEmployees,
-    getEmployee
+    createUser,
+    getUsers,
+    getUser
 }
