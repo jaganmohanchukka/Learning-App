@@ -5,5 +5,6 @@ const router = express.Router()
 router.post('/add-user', usercontroller.createUser)
 router.get('/users', usercontroller.getUsers)
 router.get('/users/:id', usercontroller.getUser)
+router.get('/enrolled',usercontroller.getEnrolledCourses)
 
 export default router

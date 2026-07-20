@@ -36,9 +36,22 @@ const getUser = async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 }
+const getEnrolledCourses = async (req, res) => {
+    try{
+        const user = await User.findById(req.user.id)
+            .populate("enrolledCourses");
+
+        res.status(200).json(user.enrolledCourses);
+    } catch(error){
+        res.status(500).json({ message: error.message })
+    }
+    
+};
 
 export default {
     createUser,
     getUsers,
-    getUser
+    getUser,
+    getEnrolledCourses
+
 }
