@@ -6,5 +6,7 @@ backend/node_modules/
 frontend/.env
 backend/.env
 
+#envfiles
+backend/.env/
 # Logs
 *.log

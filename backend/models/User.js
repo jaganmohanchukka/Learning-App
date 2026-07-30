@@ -4,6 +4,11 @@ const userSchema = new mongoose.Schema({
         type : String,
         required : true
     },
+    age: {
+        type: Number,
+        min: 16,
+        max: 100,
+    },
     email:{
         type: String,
         required : true,
@@ -20,12 +25,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: 8,
         select: false,
-    },
-    age: {
-        type: Number,
-        min: 16,
-        max: 100,
-    },
+    }, 
     enrolledCourses: [
         {
         type: mongoose.Schema.Types.ObjectId,
