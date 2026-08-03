@@ -9,4 +9,5 @@ backend/.env
 #envfiles
 backend/.env/
 # Logs
+frontend/build/
 *.log
