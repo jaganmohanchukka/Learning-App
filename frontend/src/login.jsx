@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 
-function Login({ setUser}){
+function Login({ setloading, setUser}){
 
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
@@ -23,6 +23,7 @@ function Login({ setUser}){
         if (response.ok) {
             localStorage.setItem("accessToken", data.accessToken);
             setUser(data.user);
+            setloading(true);
             navigate("/home");
 
         }else{

@@ -25,7 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />}/>
         <Route path="/register" element={<Register />}/>
-        <Route path="/login" element={<Login setUser={setuser}/>}/>
+        <Route path="/login" element={<Login setloading ={setloading} setUser={setuser}/>}/>
       </Routes>
   )
 
@@ -43,7 +43,7 @@ function App() {
           <Route path="/courses/:name" element={<EnlargedCard />} />
           <Route path="/learning" element={<Learning />} />
           <Route path="/certificates" element={<Certificates />} />
-          <Route path="/account" element={<Account setuser={setuser} />} />
+          <Route path="/account" element={<Account  setuser={setuser} />} />
         </Routes>
 
       </userContext.Provider>
