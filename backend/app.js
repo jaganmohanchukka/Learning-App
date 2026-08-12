@@ -5,6 +5,7 @@ import bodyparser from 'body-parser'
 import cors from 'cors';
 import userrouter from './routes/userroutes.js'
 import courserouter from './routes/courseroutes.js'
+import authrouter from './routes/authroutes.js'
 import bcrypt  from 'bcrypt'
 
 dotenv.config()
@@ -20,6 +21,7 @@ mongoose.connect(process.env.MONGO_URL)
 app.use(bodyparser.json());
 app.use('/api/users', userrouter);
 app.use('/api/courses', courserouter);
+app.use('/api/auth', authrouter);
 app.listen(port,()=>{
     console.log("server started",port)
 })

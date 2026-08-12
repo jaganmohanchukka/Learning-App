@@ -1,4 +1,6 @@
 import mongoose from 'mongoose'
+import course from "../models/Course.js";
+
 const userSchema = new mongoose.Schema({
     name:{
         type : String,
@@ -29,7 +31,7 @@ const userSchema = new mongoose.Schema({
     enrolledCourses: [
         {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Course",
+        ref: "course",
         },
     ],
     role: {

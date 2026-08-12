@@ -1,9 +1,24 @@
-import React from 'react'
+import { useContext ,React } from 'react'
 import { useLocation } from 'react-router-dom';
+import { userContext } from './App'
 
 function EnlargedCard(){
+    const user = useContext(userContext)
     const { state } = useLocation();
     const course = state;
+    async function enroll(course){
+        const token = localStorage.getItem("accessToken");
+        console.log(course);
+        const _id = course._id;
+        const response = await fetch("http://localhost:3000/api/users/enroll", {
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+             },
+            body: JSON.stringify({ courseid:_id })
+        });
+    }
 
     if (!course) {
         return <p>No course data found.</p>;
@@ -20,7 +35,7 @@ function EnlargedCard(){
                 </div>
                 <div id="about-card">
                     <p id = "abt-provider">This course is provided by {course.provider}</p>
-                    <button type="button" id="enroll-btn">Enroll</button>
+                    <button type="button" id="enroll-btn" onClick={()=>{enroll(course)}}>Enroll</button>
                 </div>
                 
             </div>

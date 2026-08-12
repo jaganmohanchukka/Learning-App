@@ -7,11 +7,15 @@ function Learning(){
     }, []);
     async function fetchEnrolledCourses() {
         try {
-            const response = await fetch("http://localhost:3000/api/courses/enrolled");
+            const token = localStorage.getItem("accessToken");
+            console.log("TOKEN:", token);
+            const response = await fetch("http://localhost:3000/api/users/enrolled",{headers: {
+                    Authorization: `Bearer ${token}`
+            }});
+            const data = await response.json();
             if (!response.ok) {
                 throw new Error("Failed to fetch courses");
             }
-            const data = await response.json();
             setenrolled(data);
         } catch (error) {
             console.error(error);
@@ -25,18 +29,18 @@ function Learning(){
             <div id="graph">
                 
             </div>
-            <p id = "learn-para" >Courses you are learning</p>
+            <p id = "learn-para" >Courses you are enrolled</p>
             <div id="learn-inner">
                 {enrolled.map((item, index) => (
                   <Card key={index} name={item.name} image={item.photo} />
                 ))}
             </div>
-            <p id = "learn-para" >Courses you compleated</p>
+            {/* <p id = "learn-para" >Courses you compleated</p>
             <div id="learn-inner">
                 {coursescompleated.map((item, index) => (
                     <Card key={index} name={item.name} image={item.image} />
                 ))}
-            </div>
+            </div> */}
         </div>
     )
 }

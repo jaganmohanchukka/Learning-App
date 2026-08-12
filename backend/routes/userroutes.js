@@ -1,12 +1,13 @@
 import express from 'express'
 import usercontroller from '../controller/usercontroller.js'
 import User from '../models/User.js'
+import protect from '../middleware/authMiddleware.js'
+
 const router = express.Router()
-router.post('/add-user', usercontroller.createUser)
 router.get('/users', usercontroller.getUsers)
-router.get('/users/:id', usercontroller.getUser)
-router.post('/login', usercontroller.loginUser)
-router.get('/enrolled',usercontroller.getEnrolledCourses)
+router.get('/user',protect, usercontroller.getMe)
+router.get('/enrolled',protect,usercontroller.getEnrolledCourses)
+router.post('/enroll',protect,usercontroller.addEnrolledCourses)
 
 
 export default router

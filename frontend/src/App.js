@@ -19,13 +19,13 @@ function App() {
       email: "admiin@gmail.com",
   }
   const [user, setuser] = useState(admin);
-  const [login, setlogin] = useState(false);
-  if(!login){
+  const [loading, setloading] = useState(false);
+  if(!loading){
     return(
       <Routes>
         <Route path="/" element={<Landing />}/>
         <Route path="/register" element={<Register />}/>
-        <Route path="/login" element={<Login setlogin={setlogin}  setUser={setuser}/>}/>
+        <Route path="/login" element={<Login setUser={setuser}/>}/>
       </Routes>
   )
 

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 
-function Login({ setlogin , setUser}){
+function Login({ setUser}){
 
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
@@ -13,7 +13,7 @@ function Login({ setlogin , setUser}){
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        const response = await fetch("http://localhost:3000/api/users/login", {
+        const response = await fetch("http://localhost:3000/api/auth/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password })
@@ -21,8 +21,7 @@ function Login({ setlogin , setUser}){
         console.log("Status:", response.status);
         const data = await response.json();
         if (response.ok) {
-            setlogin(true);
-            console.log(data);
+            localStorage.setItem("accessToken", data.accessToken);
             setUser(data.user);
             navigate("/home");
 
