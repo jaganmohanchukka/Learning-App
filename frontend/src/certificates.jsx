@@ -1,21 +1,21 @@
 import Certificate from './certificate.jsx'
 import React,{useContext} from 'react';
-import { userContext } from './App';
+import { useAuth } from './auth.jsx';
 
 
 function Certificates(){
 
-    const username = useContext(userContext);
+    const {user} = useAuth();
 
     const certificates =[
         {
-            name: username.name,
+            name: user.name,
             course: "HTML",
             provider: "course provider",
             year:"**/**/****"
         },
         {
-            name: username.name,
+            name: user.name,
             course: "JAVA SCRIPT",
             provider: "course provider",
             year:"**/**/****"

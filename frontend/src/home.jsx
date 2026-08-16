@@ -1,11 +1,12 @@
 import React,{useState , useContext ,useEffect} from 'react';
 import Card from './card';
 import Loader from './loader.jsx'
-import { userContext } from './App';
+import { useAuth } from './auth.jsx';
 import { useNavigate } from "react-router-dom"
 
 function Home(){
-    const user = useContext(userContext)
+    const {user} = useAuth()
+
     const navigate = useNavigate();
     const [search, setsearch]=useState("");
     function handlechange(e){ 

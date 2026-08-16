@@ -1,10 +1,11 @@
 
 import { useState } from "react";
-import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "./auth";
 
-function Login({ setloading, setUser}){
+function Login(){
 
+    const { login } = useAuth();
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState(false);
@@ -18,12 +19,10 @@ function Login({ setloading, setUser}){
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password })
         });
-        console.log("Status:", response.status);
+
         const data = await response.json();
         if (response.ok) {
-            localStorage.setItem("accessToken", data.accessToken);
-            setUser(data.user);
-            setloading(true);
+            login(data.user,data.accessToken);
             navigate("/home");
 
         }else{

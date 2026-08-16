@@ -1,10 +1,10 @@
 import React , {useContext} from 'react';
-import { userContext } from './App';
+import { useAuth } from './auth';
 import { Link } from "react-router-dom"
 function Navcoln({ setActivePage }){
 
 
-    const user = useContext(userContext);
+    const {user} = useAuth();
 
     return(
         

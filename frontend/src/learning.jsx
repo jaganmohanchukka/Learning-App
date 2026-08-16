@@ -25,7 +25,7 @@ function Learning(){
 
     ];
     return(
-        <div id="learn-outer">
+        <div id="outer">
             <div id="graph">
                 
             </div>
