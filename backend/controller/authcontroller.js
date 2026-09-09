@@ -8,7 +8,6 @@ const createUser = async(req,res)=>{
         const {name, age, email, phone, password} = req.body;
         const salt = await bcrypt.genSalt();
         const hashedpassword = await bcrypt.hash(password,salt);
-        console.log(req.body);
         const user = new User({
             name,
             age,
@@ -42,7 +41,7 @@ const loginUser = async (req, res) => {
             process.env.SECRET_TOKEN,   
             { expiresIn: "1h" }
         );
-        console.log(token)
+
         res.json({ message: "Login successful", accessToken : token , user: { id: user._id, name: user.name, email:user.email } });
 
     } catch (err) {

@@ -9,7 +9,7 @@ function Learning(){
         try {
             const token = localStorage.getItem("accessToken");
             console.log("TOKEN:", token);
-            const response = await fetch("http://localhost:3000/api/users/enrolled",{headers: {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/enrolled`,{headers: {
                     Authorization: `Bearer ${token}`
             }});
             const data = await response.json();

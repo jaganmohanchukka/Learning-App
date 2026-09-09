@@ -11,7 +11,7 @@ export const AuthProvider = ({children})=>{
                 return;
             }
             try{
-                const response = await fetch("http://localhost:3000/api/users/user",{
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/user`,{
                     headers : {
                         Authorization: `Bearer ${token}` 
                     }

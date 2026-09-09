@@ -25,7 +25,7 @@ function Home(){
 
     async function fetchCourses() {
         try {
-            const response = await fetch("http://localhost:3000/api/courses/courses");
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/courses/courses`);
             if (!response.ok) {
             throw new Error("Failed to fetch courses");
         }

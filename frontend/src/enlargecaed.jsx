@@ -10,7 +10,7 @@ function EnlargedCard(){
         const token = localStorage.getItem("accessToken");
         console.log(course);
         const _id = course._id;
-        const response = await fetch("http://localhost:3000/api/users/enroll", {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/enroll`, {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json",
@@ -18,6 +18,7 @@ function EnlargedCard(){
              },
             body: JSON.stringify({ courseid:_id })
         });
+        alert("course enroll successfull");
     }
 
     if (!course) {
