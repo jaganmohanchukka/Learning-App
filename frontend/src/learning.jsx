@@ -21,9 +21,6 @@ function Learning(){
             console.error(error);
         }
     }
-    const coursescompleated=[
-
-    ];
     return(
         <div id="outer">
             <div id="graph">

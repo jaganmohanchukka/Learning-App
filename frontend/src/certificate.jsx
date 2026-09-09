@@ -1,7 +1,6 @@
 
 
 
-
 function Certificate(props){
     return(
         <div id="certificate" >

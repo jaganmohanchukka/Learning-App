@@ -1,9 +1,8 @@
-import { useContext ,React } from 'react'
+
 import { useLocation } from 'react-router-dom';
 import { useAuth } from './auth'
 
 function EnlargedCard(){
-    const {user} = useAuth()
     const { state } = useLocation();
     const course = state;
     async function enroll(course){
