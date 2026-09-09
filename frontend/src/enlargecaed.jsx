@@ -1,6 +1,5 @@
 
 import { useLocation } from 'react-router-dom';
-import { useAuth } from './auth'
 
 function EnlargedCard(){
     const { state } = useLocation();
@@ -9,7 +8,7 @@ function EnlargedCard(){
         const token = localStorage.getItem("accessToken");
         console.log(course);
         const _id = course._id;
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/enroll`, {
+        await fetch(`${process.env.REACT_APP_API_URL}/api/users/enroll`, {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json",

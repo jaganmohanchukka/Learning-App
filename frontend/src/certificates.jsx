@@ -1,5 +1,4 @@
 import Certificate from './certificate.jsx'
-import React,{useContext} from 'react';
 import { useAuth } from './auth.jsx';
 
 

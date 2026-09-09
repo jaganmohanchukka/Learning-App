@@ -1,4 +1,4 @@
-import Navcoln from './navcoln.jsx'
+
 import Home from './home.jsx';
 import Learning from './learning.jsx' 
 import Certificates from './certificates.jsx' 
@@ -6,7 +6,6 @@ import Account from './account.jsx'
 import EnlargedCard from './enlargecaed';
 import Login from './login.jsx';
 import './App.css';
-import React, {useState , createContext} from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Register from './register.jsx';
 import Landing from './landing.jsx';
